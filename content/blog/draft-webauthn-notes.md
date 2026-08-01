@@ -1,9 +1,12 @@
 ---
 title: "Draft: notes on WebAuthn passkeys"
-date: "2026-07-20"
-excerpt: "Work-in-progress notes on passkey support in a configurable auth framework."
-tags: [webauthn, auth, draft]
-published: false
+date: 2026-07-20
+excerpt: Work-in-progress notes on passkey support in a configurable auth framework.
+tags:
+  - webauthn
+  - auth
+  - draft
+published: true
 ---
 
 This draft should not appear in production builds.
