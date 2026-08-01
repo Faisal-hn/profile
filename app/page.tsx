@@ -72,49 +72,6 @@ export default function HomePage() {
       <FadeIn delay={80} className="mt-14">
         <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
           <h2 className="text-sm font-medium uppercase tracking-wide text-muted">
-            Work
-          </h2>
-          <Link
-            href="/projects"
-            className="text-sm text-muted hover:text-accent transition-colors"
-          >
-            All work →
-          </Link>
-        </div>
-        <div className="mt-2">
-          {workProjects.map((project) => (
-            <ProjectEntry
-              key={project.name}
-              project={project}
-              compact
-              hideYear
-            />
-          ))}
-        </div>
-      </FadeIn>
-
-      <FadeIn delay={140} className="mt-12">
-        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-          <h2 className="text-sm font-medium uppercase tracking-wide text-muted">
-            Personal
-          </h2>
-          <Link
-            href="/projects"
-            className="text-sm text-muted hover:text-accent transition-colors"
-          >
-            All projects →
-          </Link>
-        </div>
-        <div className="mt-2">
-          {personalProjects.map((project) => (
-            <ProjectEntry key={project.name} project={project} compact />
-          ))}
-        </div>
-      </FadeIn>
-
-      <FadeIn delay={200} className="mt-12">
-        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-          <h2 className="text-sm font-medium uppercase tracking-wide text-muted">
             Experience
           </h2>
           <Link
@@ -139,6 +96,49 @@ export default function HomePage() {
                 </span>
               </div>
             </article>
+          ))}
+        </div>
+      </FadeIn>
+
+      <FadeIn delay={140} className="mt-12">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+          <h2 className="text-sm font-medium uppercase tracking-wide text-muted">
+            Work
+          </h2>
+          <Link
+            href="/projects"
+            className="text-sm text-muted hover:text-accent transition-colors"
+          >
+            All work →
+          </Link>
+        </div>
+        <div className="mt-2">
+          {workProjects.map((project) => (
+            <ProjectEntry
+              key={project.name}
+              project={project}
+              compact
+              hideYear
+            />
+          ))}
+        </div>
+      </FadeIn>
+
+      <FadeIn delay={200} className="mt-12">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+          <h2 className="text-sm font-medium uppercase tracking-wide text-muted">
+            Personal
+          </h2>
+          <Link
+            href="/projects"
+            className="text-sm text-muted hover:text-accent transition-colors"
+          >
+            All projects →
+          </Link>
+        </div>
+        <div className="mt-2">
+          {personalProjects.map((project) => (
+            <ProjectEntry key={project.name} project={project} compact />
           ))}
         </div>
       </FadeIn>
