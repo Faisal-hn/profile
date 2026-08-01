@@ -1,0 +1,11 @@
+{
+  "newFileLocation": "folder",
+  "newFileFolderPath": "content/blog",
+  "attachmentFolderPath": "public/blog",
+  "useMarkdownLinks": true,
+  "alwaysUpdateLinks": true,
+  "defaultViewMode": "source",
+  "readableLineLength": true,
+  "strictLineBreaks": false,
+  "showFrontmatter": true
+}
