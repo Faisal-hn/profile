@@ -3,7 +3,7 @@ title: "Random UUIDs and database indexes"
 date: "2026-09-13"
 excerpt: "UUIDv4 is random. An InnoDB index is ordered. Putting the first into the second turns inserts into random I/O — and the penalty only shows up once the table outgrows the buffer pool."
 tags: [mysql, innodb, uuid, performance, indexes]
-published: false
+published: true
 ---
 
 ![Random UUIDs scatter InnoDB indexes; ordered keys append.](/blog/random-uuids-cover.png)
