@@ -6,6 +6,16 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "..");
 const defaultSource = "/home/tracxn-lp-703/Obsidian Vault/Website";
 const dest = path.join(repoRoot, "content");
+const publicBlog = path.join(repoRoot, "public", "blog");
+const mediaExts = new Set([
+  ".png",
+  ".jpg",
+  ".jpeg",
+  ".gif",
+  ".webp",
+  ".svg",
+  ".avif",
+]);
 
 function loadEnvLocal() {
   const envPath = path.join(repoRoot, ".env.local");
@@ -71,4 +81,30 @@ if (!fs.existsSync(source)) {
 emptyDir(dest);
 copyDir(source, dest);
 
+/** Markdown uses `/blog/file.png` → files must live in `public/blog/`. */
+function syncBlogMedia() {
+  const blogSrc = path.join(source, "blog");
+  fs.mkdirSync(publicBlog, { recursive: true });
+  if (!fs.existsSync(blogSrc)) {
+    return 0;
+  }
+  let count = 0;
+  for (const entry of fs.readdirSync(blogSrc, { withFileTypes: true })) {
+    if (!entry.isFile()) continue;
+    const ext = path.extname(entry.name).toLowerCase();
+    if (!mediaExts.has(ext)) continue;
+    fs.copyFileSync(
+      path.join(blogSrc, entry.name),
+      path.join(publicBlog, entry.name),
+    );
+    count += 1;
+  }
+  return count;
+}
+
+const mediaCount = syncBlogMedia();
+
 console.log(`Synced:\n  ${source}\n→ ${dest}`);
+if (mediaCount > 0) {
+  console.log(`Blog media: ${mediaCount} file(s) → ${publicBlog}`);
+}

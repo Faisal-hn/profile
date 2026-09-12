@@ -9,6 +9,14 @@ published: false
 Write your post here.
 
 - Use normal Markdown links: `[text](https://example.com)` — not `[[wikilinks]]`
-- Put images in `public/blog/` and reference them as `/blog/filename.png`
-- Set `published: true` when ready; Obsidian Git push deploys via Vercel
+- Images: put files in `Website/blog/` next to the post (or `public/blog/`), reference as `![Alt](/blog/filename.png)` — **not** `![[wikilinks]]`. `npm run sync:content` copies blog images into `public/blog/`.
+- Tables: use GitHub-flavored Markdown pipe tables
+
+```md
+| Column | Value |
+| ------ | ----- |
+| Latency | 2s |
+```
+
+- Set `published: true` when ready; then `npm run sync:content` → commit → push
 - Filename becomes the URL slug (`my-post.md` → `/blog/my-post`)

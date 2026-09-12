@@ -5,7 +5,6 @@ excerpt: "How to coordinate writers on a shared row — from a guarded UPDATE to
 tags: [system-design, databases, concurrency, redis, mysql]
 published: true
 ---
-
 ## Introduction: why contention comes up so often
 
 **Contention** is what happens when several processes try to change the same scarce resource at once — a wallet balance, the last unit in stock, a unique hostname, a checkout session. Without coordination you get races: two charges for one debit, one SKU oversold, duplicate invoices, two accounts claiming the same domain.

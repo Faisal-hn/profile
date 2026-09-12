@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { FadeIn } from "@/components/FadeIn";
-import { mdxOptions } from "@/lib/mdx";
+import { mdxComponents, mdxOptions } from "@/lib/mdx";
 import { getAllPosts, getPostBySlug } from "@/lib/posts";
 
 type Props = {
@@ -66,8 +66,12 @@ export default function BlogPostPage({ params }: Props) {
           </p>
         </header>
 
-        <div className="prose prose-neutral dark:prose-invert prose-headings:font-semibold prose-a:text-accent prose-a:no-underline hover:prose-a:underline prose-pre:bg-transparent prose-code:before:content-none prose-code:after:content-none max-w-none">
-          <MDXRemote source={post.content} options={mdxOptions} />
+        <div className="prose prose-neutral dark:prose-invert prose-headings:font-semibold prose-a:text-accent prose-a:no-underline hover:prose-a:underline prose-pre:bg-transparent prose-code:before:content-none prose-code:after:content-none prose-img:rounded-md prose-table:text-sm max-w-none">
+          <MDXRemote
+            source={post.content}
+            options={mdxOptions}
+            components={mdxComponents}
+          />
         </div>
       </FadeIn>
     </article>

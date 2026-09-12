@@ -78,7 +78,14 @@ published: false
 
 4. Write the body in normal Markdown.
    - Links: `[text](https://example.com)` — **not** `[[wikilinks]]`
-   - Images: put files in `public/blog/` and reference `/blog/filename.png`
+   - Images: put files in `public/blog/` and use `![Alt](/blog/filename.png)` — **not** `![[wikilinks]]`
+   - Tables: GitHub-style pipe tables (GFM), e.g.
+
+     ```md
+     | Metric | Before | After |
+     | ------ | ------ | ----- |
+     | Latency | 15s | 2s |
+     ```
 5. When ready, set `published: true`.
 6. Run the publish commands above (`sync:content` → commit → push).
 
