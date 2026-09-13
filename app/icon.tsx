@@ -3,7 +3,7 @@ import { ImageResponse } from "next/og";
 export const size = { width: 32, height: 32 };
 export const contentType = "image/png";
 
-/** Tab favicon — FH monogram matching site accent. */
+/** High-contrast favicon — blue tile, white FH (readable at 16px). */
 export default function Icon() {
   return new ImageResponse(
     (
@@ -14,11 +14,11 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#171717",
-          color: "#3b82f6",
-          fontSize: 16,
-          fontWeight: 600,
-          letterSpacing: "-0.04em",
+          background: "#2563eb",
+          color: "#ffffff",
+          fontSize: 15,
+          fontWeight: 700,
+          letterSpacing: "-0.06em",
           fontFamily:
             'ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif',
         }}
