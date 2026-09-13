@@ -1,13 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="FH">
-  <rect width="32" height="32" rx="7" fill="#2563eb"/>
-  <!-- Bold F -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Faisal Hassan">
+  <rect width="32" height="32" rx="8" fill="#2563eb"/>
+  <!-- Single bold F — readable at 16×16 -->
   <path
     fill="#ffffff"
-    d="M6 7h12v3.8H10.2v2.8h6.6V17H10.2v8H6V7z"
-  />
-  <!-- Bold H -->
-  <path
-    fill="#ffffff"
-    d="M19.2 7h4v6.2h3.6V7H31v18h-4.2v-7.2h-3.6V25h-4V7z"
+    d="M9 7h15v5H14.5v3.5H22V20h-7.5v5H9V7z"
   />
 </svg>
