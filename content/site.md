@@ -9,7 +9,7 @@ location: Bangalore, India
 github: https://github.com/faisal-hn
 linkedin: https://www.linkedin.com/in/faisal51/
 leetcode: https://leetcode.com/u/Faisal_/
-resume: /resume.pdf
+resume: /resume
 ---
 
 I'm a backend engineer focused on authentication, payments, and event-driven infrastructure. At Tracxn I work on OAuth2/OIDC, multi-gateway billing, and high-availability data systems — usually Java, Spring Boot, Redis, Kafka, and MySQL.

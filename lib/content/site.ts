@@ -38,7 +38,7 @@ export const getSite = cache((): Site => {
       github: requireString(data.github, "github"),
       linkedin: requireString(data.linkedin, "linkedin"),
       leetcode: requireString(data.leetcode, "leetcode"),
-      resume: optionalString(data.resume) ?? "/resume.pdf",
+      resume: optionalString(data.resume) ?? "/resume",
     },
   };
 });
