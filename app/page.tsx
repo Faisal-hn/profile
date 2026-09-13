@@ -7,12 +7,16 @@ import {
   getPortfolioProjects,
 } from "@/lib/content/projects";
 import { getSite } from "@/lib/content/site";
+import { getAllPosts } from "@/lib/posts";
 
 export default function HomePage() {
   const site = getSite();
   const workProjects = getFeaturedHighlights();
   const personalProjects = getPortfolioProjects().slice(0, 2);
   const roles = getExperience();
+  const recentPosts = getAllPosts()
+    .filter((post) => post.published)
+    .slice(0, 2);
 
   return (
     <div>
@@ -127,6 +131,52 @@ export default function HomePage() {
       <FadeIn delay={200} className="mt-12">
         <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
           <h2 className="text-sm font-medium uppercase tracking-wide text-muted">
+            Blog
+          </h2>
+          <Link
+            href="/blog"
+            className="text-sm text-muted hover:text-accent transition-colors"
+          >
+            All posts →
+          </Link>
+        </div>
+        <div className="mt-2">
+          {recentPosts.length === 0 ? (
+            <p className="py-4 text-sm text-muted">No posts yet.</p>
+          ) : (
+            recentPosts.map((post) => (
+              <article
+                key={post.slug}
+                className="py-4 border-b border-border last:border-0"
+              >
+                <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                  <h3 className="text-base font-medium text-foreground">
+                    <Link
+                      href={`/blog/${post.slug}`}
+                      className="hover:text-accent transition-colors"
+                    >
+                      {post.title}
+                    </Link>
+                  </h3>
+                  <time
+                    dateTime={post.date}
+                    className="text-sm text-muted tabular-nums whitespace-nowrap"
+                  >
+                    {formatHomeDate(post.date)}
+                  </time>
+                </div>
+                <p className="mt-1.5 text-sm text-muted leading-relaxed">
+                  {post.excerpt}
+                </p>
+              </article>
+            ))
+          )}
+        </div>
+      </FadeIn>
+
+      <FadeIn delay={260} className="mt-12">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+          <h2 className="text-sm font-medium uppercase tracking-wide text-muted">
             Personal
           </h2>
           <Link
@@ -144,4 +194,12 @@ export default function HomePage() {
       </FadeIn>
     </div>
   );
+}
+
+function formatHomeDate(date: string): string {
+  return new Date(date + "T00:00:00").toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
 }
